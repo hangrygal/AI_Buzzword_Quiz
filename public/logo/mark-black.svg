@@ -1,23 +1,11 @@
-<svg xmlns="http://w3.org" viewBox="-250 -250 500 500" width="100%" height="100%">
-  <!-- Background -->
-  <rect x="-250" y="-250" width="500" height="500" fill="#EBEBEB"/>
-  
-  <!-- Outer Logo Shape -->
-  <g fill="#1A1A1A">
-    <!-- Component 1 -->
-    <path d="M -20,-60 L -120,-60 C -142,-60 -160,-78 -160,-100 L -160,-200 C -160,-222 -142,-240 -120,-240 L -20,-240 C 2,-240 20,-222 20,-200 L 20,-100 C 20,-78 2,-60 -20,-60 Z" transform="rotate(0)"/>
-    <!-- Component 2 -->
-    <path d="M -20,-60 L -120,-60 C -142,-60 -160,-78 -160,-100 L -160,-200 C -160,-222 -142,-240 -120,-240 L -20,-240 C 2,-240 20,-222 20,-200 L 20,-100 C 20,-78 2,-60 -20,-60 Z" transform="rotate(60)"/>
-    <!-- Component 3 -->
-    <path d="M -20,-60 L -120,-60 C -142,-60 -160,-78 -160,-100 L -160,-200 C -160,-222 -142,-240 -120,-240 L -20,-240 C 2,-240 20,-222 20,-200 L 20,-100 C 20,-78 2,-60 -20,-60 Z" transform="rotate(120)"/>
-    <!-- Component 4 -->
-    <path d="M -20,-60 L -120,-60 C -142,-60 -160,-78 -160,-100 L -160,-200 C -160,-222 -142,-240 -120,-240 L -20,-240 C 2,-240 20,-222 20,-200 L 20,-100 C 20,-78 2,-60 -20,-60 Z" transform="rotate(180)"/>
-    <!-- Component 5 -->
-    <path d="M -20,-60 L -120,-60 C -142,-60 -160,-78 -160,-100 L -160,-200 C -160,-222 -142,-240 -120,-240 L -20,-240 C 2,-240 20,-222 20,-200 L 20,-100 C 20,-78 2,-60 -20,-60 Z" transform="rotate(240)"/>
-    <!-- Component 6 -->
-    <path d="M -20,-60 L -120,-60 C -142,-60 -160,-78 -160,-100 L -160,-200 C -160,-222 -142,-240 -120,-240 L -20,-240 C 2,-240 20,-222 20,-200 L 20,-100 C 20,-78 2,-60 -20,-60 Z" transform="rotate(300)"/>
-  </g>
-
-  <!-- Central Star Negative Space (Masking/Overlay Verification) -->
-  <!-- Note: The overlapping paths mathematically leave out a perfect central geometric pinwheel. -->
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Generation C (placeholder mark)">
+  <!-- PLACEHOLDER MARK — vervang door het echte Generation C-logo (zwarte versie).
+       "Structure from the scattered": modulaire blokken die een C vormen. -->
+  <rect x="12" y="12" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="46" y="12" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="80" y="12" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="12" y="46" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="12" y="80" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="46" y="80" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="80" y="80" width="28" height="28" rx="6" fill="#232323"/>
 </svg>
