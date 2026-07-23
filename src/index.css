@@ -1,0 +1,436 @@
+/* ===================================================================
+   Generation C — huisstijl
+   "Structure from the scattered": modern, strak, bold, energiek,
+   professioneel.
+   =================================================================== */
+
+/* ---- Uncut Sans (optioneel) --------------------------------------
+   Leg de bestanden in /public/fonts/ (zie public/fonts/README.txt).
+   Staan ze er niet, dan valt de app netjes terug op Inter. ---------- */
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('/fonts/UncutSans-Book.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Uncut Sans';
+  src: url('/fonts/UncutSans-Semibold.woff2') format('woff2');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  /* Merkkleuren (exacte hex) */
+  --yellow: #ffce00;
+  --black: #232323;
+  --offwhite: #f2ede7;
+  --white: #ffffff;
+
+  /* Secundaire kleuren — alleen als accent/support (o.a. antwoordknoppen) */
+  --maroon: #70243c;
+  --green: #38825f;
+  --orange: #e8773f;
+  --blue: #3d67b2;
+
+  /* Typografie */
+  --font-sans: 'Uncut Sans', 'Inter', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Vormtaal */
+  --radius: 22px;
+  --radius-lg: 30px;
+  --radius-pill: 999px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background: var(--offwhite);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3,
+.heading {
+  font-weight: 600;
+  letter-spacing: -0.03em; /* tracking -30 */
+  line-height: 1.05;
+  margin: 0;
+}
+
+p {
+  line-height: 1.5;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+/* ---- Pills / labels (Geist Mono, HOOFDLETTERS) -------------------- */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5ch;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4em 0.9em;
+  border-radius: var(--radius-pill);
+  background: var(--black);
+  color: var(--white);
+  white-space: nowrap;
+}
+.pill--yellow { background: var(--yellow); color: var(--black); }
+.pill--outline { background: transparent; border: 2px solid currentColor; }
+.pill--pittig { background: var(--orange); color: var(--white); }
+.pill--expert { background: var(--maroon); color: var(--white); }
+
+/* ---- Knoppen ------------------------------------------------------ */
+.btn {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: 0.9em 1.6em;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6ch;
+  transition: transform 0.08s ease, filter 0.15s ease, opacity 0.15s ease;
+}
+.btn:active { transform: translateY(1px) scale(0.99); }
+.btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+/* Primaire knop: geel vlak, off-black tekst */
+.btn--primary { background: var(--yellow); color: var(--black); }
+.btn--primary:hover:not(:disabled) { filter: brightness(1.04); }
+
+/* Donkere knop op lichte achtergrond */
+.btn--dark { background: var(--black); color: var(--white); }
+.btn--ghost { background: transparent; color: inherit; border: 2px solid currentColor; }
+
+.btn--lg { font-size: 1.15rem; padding: 1.05em 2em; }
+.btn--block { width: 100%; }
+
+/* ---- Kaarten ------------------------------------------------------ */
+.card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 28px;
+  box-shadow: 0 12px 40px rgba(35, 35, 35, 0.08);
+}
+
+/* ---- Layout-helpers ---------------------------------------------- */
+.screen {
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+.center-col {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  padding: 24px;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+}
+.stack { display: flex; flex-direction: column; gap: 16px; }
+.row { display: flex; align-items: center; gap: 12px; }
+.spread { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.muted { opacity: 0.6; }
+.mono { font-family: var(--font-mono); }
+
+/* Donkere sectie (bv. hostscherm) */
+.dark {
+  background: var(--black);
+  color: var(--white);
+}
+.dark .card { background: #2e2e2e; color: var(--white); box-shadow: none; }
+
+/* Logo in de hoek */
+.corner-logo {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  width: 44px;
+  height: 44px;
+  opacity: 0.9;
+  z-index: 5;
+}
+
+/* ===================================================================
+   Antwoordknoppen (A/B/C/D) — Kahoot-stijl met secundaire kleuren
+   =================================================================== */
+.answers-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+}
+@media (max-width: 560px) {
+  .answers-grid { grid-template-columns: 1fr; }
+}
+
+.answer {
+  position: relative;
+  border: none;
+  border-radius: var(--radius);
+  padding: 20px;
+  min-height: 96px;
+  text-align: left;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  transition: transform 0.08s ease, filter 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.22);
+}
+.answer:hover:not(:disabled) { filter: brightness(1.06); }
+.answer:active:not(:disabled) { transform: translateY(3px); box-shadow: 0 3px 0 rgba(0, 0, 0, 0.22); }
+.answer:disabled { cursor: default; }
+
+.answer .badge {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.4rem;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  width: 46px;
+  min-width: 46px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.answer--a { background: var(--blue); }
+.answer--b { background: var(--orange); }
+.answer--c { background: var(--green); }
+.answer--d { background: var(--maroon); }
+
+/* selectie & feedback-toestanden */
+.answer.is-selected { outline: 4px solid var(--yellow); outline-offset: 3px; }
+.answer.is-dimmed { opacity: 0.35; }
+.answer.is-correct { outline: 5px solid var(--yellow); outline-offset: 3px; }
+.answer .mark {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+/* ===================================================================
+   Host-specifiek
+   =================================================================== */
+.pin-display {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  font-size: clamp(3rem, 12vw, 7rem);
+  color: var(--yellow);
+  line-height: 1;
+}
+.qr-box {
+  background: var(--white);
+  padding: 18px;
+  border-radius: var(--radius);
+  display: inline-flex;
+}
+.big-term {
+  font-size: clamp(2.2rem, 6vw, 4.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+.timer-ring {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+/* Host-grid met de 4 definities (leesbaar op de beamer) */
+.host-answers {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+}
+.host-answer {
+  border-radius: var(--radius);
+  padding: 22px 24px;
+  color: var(--white);
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  font-size: clamp(1rem, 1.9vw, 1.5rem);
+  transition: opacity 0.2s ease, outline 0.2s ease;
+}
+.host-answer .badge {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.8rem;
+  background: rgba(255, 255, 255, 0.22);
+  border-radius: 12px;
+  width: 56px;
+  min-width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.host-answer.is-correct { outline: 6px solid var(--yellow); outline-offset: 2px; }
+.host-answer.is-wrong { opacity: 0.4; }
+.host-answer .pct {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+
+/* Deelnemerslijst / lobby-chips */
+.chips { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
+.chip {
+  background: var(--white);
+  color: var(--black);
+  border-radius: var(--radius-pill);
+  padding: 0.5em 1.1em;
+  font-weight: 600;
+  font-size: 1.05rem;
+  animation: pop 0.25s ease;
+}
+.dark .chip { background: var(--yellow); color: var(--black); }
+@keyframes pop { from { transform: scale(0.6); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+
+/* Ranglijst */
+.leaderboard { width: 100%; display: flex; flex-direction: column; gap: 10px; }
+.lb-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: var(--white);
+  color: var(--black);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  font-size: 1.15rem;
+}
+.dark .lb-row { background: #2e2e2e; color: var(--white); }
+.lb-row .rank { font-family: var(--font-mono); font-weight: 700; opacity: 0.7; width: 2ch; }
+.lb-row .name { font-weight: 600; }
+.lb-row .pts { margin-left: auto; font-family: var(--font-mono); font-weight: 700; color: var(--yellow); }
+.dark .lb-row .pts { color: var(--yellow); }
+.lb-row.me { outline: 3px solid var(--yellow); }
+
+/* Podium */
+.podium { display: flex; align-items: flex-end; justify-content: center; gap: 16px; width: 100%; }
+.podium .stand {
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--yellow);
+  color: var(--black);
+  padding: 20px 16px;
+  text-align: center;
+  min-width: 110px;
+}
+.podium .p1 { height: 220px; }
+.podium .p2 { height: 170px; background: var(--white); }
+.podium .p3 { height: 130px; background: var(--orange); color: var(--white); }
+.podium .stand .pos { font-family: var(--font-mono); font-weight: 700; font-size: 2rem; }
+.podium .stand .who { font-weight: 600; margin-top: 8px; word-break: break-word; }
+.podium .stand .sc { font-family: var(--font-mono); margin-top: 4px; }
+
+/* Inputs */
+.input {
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  padding: 16px 18px;
+  border-radius: var(--radius);
+  border: 2px solid rgba(35, 35, 35, 0.15);
+  background: var(--white);
+  color: var(--black);
+  width: 100%;
+}
+.input:focus { outline: none; border-color: var(--yellow); }
+.input--pin {
+  font-family: var(--font-mono);
+  letter-spacing: 0.35em;
+  text-align: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+/* Feedback banners (speler) */
+.banner {
+  border-radius: var(--radius);
+  padding: 22px;
+  text-align: center;
+  width: 100%;
+}
+.banner--good { background: var(--green); color: var(--white); }
+.banner--bad { background: var(--maroon); color: var(--white); }
+.banner .big { font-size: 2rem; font-weight: 600; letter-spacing: -0.03em; }
+
+/* Samenvatting-items (eindscherm speler) */
+.summary-item {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 18px 20px;
+  border-left: 8px solid var(--green);
+}
+.summary-item.wrong { border-left-color: var(--maroon); }
+.summary-item .q-term { font-weight: 600; font-size: 1.15rem; letter-spacing: -0.02em; }
+.summary-item .lbl {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  opacity: 0.6;
+  margin-top: 10px;
+}
+
+/* Diverse */
+.count-badge {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1.4rem;
+}
+.grow { flex: 1; }
+.full { width: 100%; }
+.tc { text-align: center; }
+.progress-line { font-family: var(--font-mono); letter-spacing: 0.05em; opacity: 0.7; }
+
+/* Spinner / laadscherm */
+.spinner {
+  width: 42px; height: 42px;
+  border: 5px solid rgba(35,35,35,0.15);
+  border-top-color: var(--yellow);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+.dark .spinner { border-color: rgba(255,255,255,0.2); border-top-color: var(--yellow); }
+@keyframes spin { to { transform: rotate(360deg); } }

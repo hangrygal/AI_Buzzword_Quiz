@@ -1,0 +1,11 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Generation C (placeholder mark)">
+  <!-- PLACEHOLDER MARK — vervang door het echte Generation C-logo (zwarte versie).
+       "Structure from the scattered": modulaire blokken die een C vormen. -->
+  <rect x="12" y="12" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="46" y="12" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="80" y="12" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="12" y="46" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="12" y="80" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="46" y="80" width="28" height="28" rx="6" fill="#232323"/>
+  <rect x="80" y="80" width="28" height="28" rx="6" fill="#232323"/>
+</svg>
